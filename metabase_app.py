@@ -11,6 +11,10 @@ st.write("This is my Streamlit app")
 #mbkey = cred.get_Key('Metabase_Search_Key')
 mbkey = cred.get_Key("Metabase_Search_Key")
 #st.write(f"hide this in production: {mbkey}")
+key = cred.get_Credentials().get('Metabase_Search_Key') 
+if not key:
+    user_input = st.text_input("enter your metabase search key", '')
+    cred.set_Key(Metabase_Search_Key=user_input)
 
 with st.form("mbkey_form"):
     #mbkey = cred.get_Key('Metabase_Search_Key')
